@@ -3,9 +3,10 @@ const randomiseNumber = (minNumber, maxNumber) => {
     return;
   }
   return Math.floor(Math.random() * (maxNumber - minNumber + 1) + minNumber);
-}
+};
 
-const checkLength = (string, maxLength) => {
-   return string.length <= maxLength;
-}
+const checkLength = (string, maxLength) => string.length <= maxLength;
+
+randomiseNumber(1, 10);
+checkLength('', 0);
 
