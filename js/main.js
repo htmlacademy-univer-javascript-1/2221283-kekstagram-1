@@ -13,6 +13,11 @@ const Like = {
   MAX: 200
 };
 
+const Comment = {
+  MIN: 1,
+  MAX: 10
+};
+
 const randomiseNumber = (minNumber, maxNumber) => {
   if (minNumber < 0 || maxNumber < 0) {
     return -1;
@@ -25,12 +30,14 @@ const randomiseNumber = (minNumber, maxNumber) => {
   return Math.floor(Math.random() * (maxNumber - minNumber + 1) + minNumber);
 };
 
-const addComments = () => ({
+const addComment = () => ({
   id: 135,
   avatar: `img/avatar${randomiseNumber(1, 6)}.svg`,
   message: 'Всё отлично!',
   name: NAMES[randomiseNumber(0, NAMES.length - 1)]
 });
+
+const comments = Array.from({length: randomiseNumber(Comment.MIN, Comment.MAX)}, addComment);
 
 let id = 0;
 
@@ -41,7 +48,7 @@ const addPhoto = () => {
     url: `photos/${id}.jpg`,
     description: 'В целом всё неплохо. Но не всё.',
     likes: randomiseNumber(Like.MIN, Like.MAX),
-    comments: addComments()
+    comments: comments
   };
 };
 
