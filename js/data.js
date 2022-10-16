@@ -27,7 +27,10 @@ const addComment = () => ({
   name: NAMES[randomiseNumber(0, NAMES.length - 1)]
 });
 
-const comments = Array.from({length: randomiseNumber(Comment.MIN, Comment.MAX)}, addComment);
+const createComments = () => {
+  const commentsList = Array.from({length: randomiseNumber(Comment.MIN, Comment.MAX)}, addComment);
+  return commentsList;
+};
 
 let id = 0;
 
@@ -38,7 +41,7 @@ const addPhoto = () => {
     url: `photos/${id}.jpg`,
     description: 'В целом всё неплохо. Но не всё.',
     likes: randomiseNumber(Like.MIN, Like.MAX),
-    comments: comments
+    comments: createComments()
   };
 };
 
