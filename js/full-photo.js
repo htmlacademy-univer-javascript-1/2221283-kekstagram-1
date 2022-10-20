@@ -1,43 +1,23 @@
 import { createComment } from './comments.js';
 
-const fullImage = document.querySelector('.big-picture');
-const closeButton = document.querySelector('.big-picture__cancel');
+const fullImage = document.querySelector('.big-picture__preview');
 const comments = document.querySelector('.social__comments');
 
-const onFullImageClick = (photo, photoData) => {
-  photo.addEventListener('click', () => {
-    fullImage.classList.remove('hidden');
+const createFullImage = (photoData) => {
+  fullImage.querySelector('.big-picture__img').querySelector('img').src = photoData.url;
+  fullImage.querySelector('.likes-count').textContent = photoData.likes;
+  fullImage.querySelector('.comments-count').textContent = photoData.comments.length;
+  fullImage.querySelector('.social__caption').textContent = photoData.description;
+  fullImage.querySelector('.social__comment-count').classList.add('hidden');
+  fullImage.querySelector('.comments-loader').classList.add('hidden');
 
-    fullImage.querySelector('.big-picture__img').querySelector('img').src = photoData.url;
-    fullImage.querySelector('.likes-count').textContent = photoData.likes;
-    fullImage.querySelector('.comments-count').textContent = photoData.comments.length;
-    fullImage.querySelector('.social__caption').textContent = photoData.description;
+  comments.innerHTML = '';
 
-    document.body.classList.add('modal-open');
-    fullImage.querySelector('.social__comment-count').classList.add('hidden');
-    fullImage.querySelector('.comments-loader').classList.add('hidden');
-
-    comments.innerHTML = '';
-
-    photoData.comments.forEach((comment) => {
-      comments.appendChild(createComment(comment));
-    });
+  photoData.comments.forEach((comment) => {
+    comments.appendChild(createComment(comment));
   });
+  return fullImage;
 };
 
-closeButton.addEventListener('click', () => {
-  fullImage.classList.add('hidden');
-  document.body.classList.remove('modal-open');
-});
+export {createFullImage};
 
-const onDocumentEscapeKeyDown = (evt) => {
-  if (evt.key === 'Escape') {
-    fullImage.classList.add('hidden');
-    document.body.classList.remove('modal-open');
-  }
-};
-
-document.addEventListener('keydown', onDocumentEscapeKeyDown);
-
-fullImage.addEventListener('click', onFullImageClick);
-export { onFullImageClick };
