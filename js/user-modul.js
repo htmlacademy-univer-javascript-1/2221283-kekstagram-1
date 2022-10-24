@@ -7,7 +7,9 @@ const closeButton = document.querySelector('.big-picture__cancel');
 const onDocumentEscapeKeyDown = (evt) => {
   if (isEscapeKey(evt)) {
     evt.preventDefault();
-    closeFullPhoto();
+    fullImage.classList.add('hidden');
+    document.body.classList.remove('modal-open');
+    document.removeEventListener('keydown', onDocumentEscapeKeyDown);
   }
 };
 
