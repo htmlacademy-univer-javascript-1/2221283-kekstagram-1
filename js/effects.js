@@ -97,7 +97,7 @@ const updateSlider = ({ RANGE: { MIN, MAX }, START, STEP, CURRENT_EFFECT, EFFECT
 const resetEffectSettings = () => {
   picturePreview.classList = '';
   picturePreview.style.filter = '';
-  updateSlider(sliderOptions.NONE, DEFAULT_START_VALUE, 'none');
+  updateSlider(sliderOptions.NONE, DEFAULT_START_VALUE, 'NONE');
 };
 
 noUiSlider.create(sliderElement, {
@@ -149,3 +149,7 @@ effects.addEventListener('change', (evt) => {
     updateSlider(sliderOptions[targetEffect], DEFAULT_START_VALUE, 'block');
   }
 });
+
+
+export {resetEffectSettings};
+
