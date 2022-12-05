@@ -3,6 +3,7 @@ import './form.js';
 import './scale.js';
 import './effects.js';
 import './form-submit.js';
+import './hashtag.js';
 import { createPicture } from './photos.js';
 import { sendRequest } from './fetch.js';
 
