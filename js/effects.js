@@ -115,6 +115,8 @@ sliderElement.noUiSlider.on('update', (_, handle, unencoded) => {
   effectValue.setAttribute('value', unencoded[handle]);
 });
 
+resetEffectSettings();
+
 effects.addEventListener('change', (evt) => {
   const target = evt.target;
   const targetEffect = target.value.toUpperCase();
