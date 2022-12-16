@@ -1,4 +1,4 @@
-import { isEscapeKey } from './util.js';
+import { isEscapeKey } from '../utils/util.js';
 import { createFullImage } from './full-photo.js';
 import { createComment } from './comments.js';
 
