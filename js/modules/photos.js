@@ -1,5 +1,5 @@
 import {showFullImage} from './user-modul.js';
-import { debounce } from './util.js';
+import { debounce } from '../utils/util.js';
 import { defaultFilter, filterRandom, filterByComments } from './filter-list.js';
 
 const RERENDER_DELAY = 500;

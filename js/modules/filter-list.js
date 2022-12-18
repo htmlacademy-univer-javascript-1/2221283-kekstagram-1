@@ -1,4 +1,4 @@
-import { convertArray } from './util.js';
+import { convertArray } from '../utils/util.js';
 
 const RANDOM_PHOTOS_NUMBER = 10;
 
